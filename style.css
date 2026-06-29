@@ -1,0 +1,493 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ff5fa2,#ff8cc8,#ffd6e8);
+    position:relative;
+}
+
+/* Animated Background */
+
+.background-hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+    pointer-events:none;
+}
+
+.floating-heart{
+    position:absolute;
+    bottom:-50px;
+    color:white;
+    opacity:.8;
+    animation:floatUp linear forwards;
+    text-shadow:0 0 15px rgba(255,255,255,.8);
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:translateY(0) scale(.7);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-120vh) rotate(360deg) scale(1.4);
+        opacity:0;
+    }
+
+}
+
+/* Glass Card */
+
+.card{
+
+    position:relative;
+    z-index:5;
+
+    width:90%;
+    max-width:650px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.2);
+
+}
+
+h1{
+
+    color:white;
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.text{
+
+    color:white;
+
+    line-height:1.8;
+
+    font-size:20px;
+
+    margin-bottom:35px;
+
+}
+
+.cat{
+
+    width:220px;
+
+    margin:20px auto;
+
+    display:block;
+
+    border-radius:20px;
+
+}
+
+button{
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#ff2d75;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 25px white;
+
+}
+/* ===== YES PAGE ===== */
+
+.letter-page{
+    display:block !important;
+    background:linear-gradient(135deg,#ff5fa2,#ffc0cb);
+    min-height:100vh;
+    overflow:auto;
+}
+
+.envelope-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    position:relative;
+    z-index:100;
+}
+
+.envelope{
+    width:220px;
+    height:150px;
+    position:relative;
+    cursor:pointer;
+    user-select:none;
+    z-index:9999;
+}
+
+.envelope-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ff4f92;
+    border-radius:10px;
+}
+
+.envelope-letter{
+    position:absolute;
+    width:85%;
+    height:120px;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+    background:white;
+    border-radius:8px;
+    transition:.6s;
+    z-index:1;
+}
+
+.envelope-flap{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:80px;
+    background:#ff75aa;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    transition:.6s;
+    z-index:2;
+}
+
+.envelope:hover .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.envelope:hover .envelope-letter{
+    top:-70px;
+}
+
+
+
+.letter-box{
+    display:none;
+    max-width:850px;
+    margin:60px auto;
+    background:white;
+    color:#333;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,.2);
+}
+
+#typing{
+    white-space:pre-line;
+    line-height:1.9;
+    font-size:19px;
+    margin-top:25px;
+}
+
+#nextBtn{
+    margin-top:40px;
+}
+
+/* ===== Memories Page ===== */
+
+.memories-page{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff8fb8,#ffc6dd);
+}
+
+.gallery{
+    width:90%;
+    max-width:1100px;
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.gallery h1{
+    color:#ff2d75;
+    margin-bottom:30px;
+}
+
+.photos{
+    columns:3;
+    column-gap:20px;
+}
+
+.photos img,
+.photos video{
+    width:100%;
+    margin-bottom:20px;
+    border-radius:20px;
+    display:block;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.photos img:hover,
+.photos video:hover{
+    transform:scale(1.05);
+}
+
+
+#memoryBtn{
+    margin-top:35px;
+}
+
+/* ===== PROMISE PAGE ===== */
+
+.promise-page{
+    display:block !important;
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff89b3,#ffd1e3);
+    padding:40px 0;
+}
+
+.promise-box{
+
+width:90%;
+max-width:1200px;
+margin:0 auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+}
+
+.promise-box h1{
+
+color:#ff2d75;
+
+margin-bottom:35px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+.love-card{
+
+background:#ffe5ef;
+
+padding:25px;
+
+border-radius:20px;
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.love-card:hover{
+
+transform:translateY(-10px);
+
+background:#ffd2e3;
+
+}
+
+.love-card h2{
+
+margin:15px 0;
+
+color:#ff2d75;
+
+}
+
+#promiseBtn{
+
+margin-top:35px;
+
+}
+
+/* ===== FINAL PAGE ===== */
+
+.final-page{
+
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+
+background:linear-gradient(135deg,#ff77a9,#ffc2d8);
+
+}
+
+.question-box{
+
+background:white;
+
+padding:45px;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 10px 35px rgba(0,0,0,.2);
+
+}
+
+.question-box h1{
+
+color:#ff2d75;
+
+}
+
+.question-box p{
+
+font-size:22px;
+
+margin:25px 0;
+
+}
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+}
+
+/* SUCCESS PAGE */
+
+.success-page{
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+height:100vh;
+
+text-align:center;
+
+background:linear-gradient(135deg,#ff5fa2,#ffbad5);
+
+color:white;
+
+padding:40px;
+
+}
+
+.success-page h1{
+
+font-size:60px;
+
+margin:20px 0;
+
+}
+
+.success-page h2{
+
+margin-bottom:25px;
+
+}
+
+.success-page p{
+
+max-width:700px;
+
+font-size:22px;
+
+line-height:1.8;
+
+}
+
+.heart{
+
+font-size:90px;
+
+animation:beat 1s infinite;
+
+}
+
+@keyframes beat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.2);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
